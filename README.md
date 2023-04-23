@@ -4,7 +4,7 @@ VR1 Family Charity Aid Services is an Australian organisation that aims to provi
 
 
 ## How To Run
-1. Be sure to install the following (e.g pip3 install flask): 
+1. Be sure to install the following (e.g `pip3 install flask`): 
     * Flask
     * SQLAlchemy
     * python-dotenv

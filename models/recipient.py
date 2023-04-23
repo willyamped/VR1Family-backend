@@ -1,6 +1,5 @@
 from flask_sqlalchemy import SQLAlchemy
-
-db = SQLAlchemy()
+from application import db
 
 class Recipient(db.Model):
   id = db.Column(db.Integer, primary_key = True)
