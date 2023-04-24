@@ -27,19 +27,19 @@ def add_new_recipient():
       address = request.json['address'],
       num_of_family_members = request.json['num_of_family_members'],
       nationality = request.json['nationality'],
-      identification_number = request.json['identification_number']
+      identification_numbers = request.json['identification_numbers']
     )
     db.session.add(recipient)
     db.session.commit()
     return f"Recipient {recipient.id} has been added"
   except:
-    return "One of the attributes is missing. Ensure you have \"name, age, address, num_of_family_memberes, nationality, identification_number\""
+    return "One of the attributes is missing. Ensure you have \"name, age, address, num_of_family_members, nationality, identification_numbers\""
     
 @recipient_bp.route('/<id>', methods=['GET'])
 def get_recipient_by_id(id):
   try:
     recipient = Recipient.query.get(id)
-    return {"name": recipient.name}
+    return {"name": recipient.name, "identification": recipient.identification_numbers}
   except:
     return f"id: {id} does not exist"
 

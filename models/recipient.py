@@ -1,5 +1,6 @@
 from flask_sqlalchemy import SQLAlchemy
 from application import db
+import json
 
 class Recipient(db.Model):
   id = db.Column(db.Integer, primary_key = True)
@@ -9,4 +10,4 @@ class Recipient(db.Model):
   num_of_family_members = db.Column(db.Integer)
   
   nationality = db.Column(db.String(80))
-  identification_number = db.Column(db.String(80))
+  identification_numbers = db.Column(db.JSON)
