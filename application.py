@@ -18,6 +18,9 @@ app.register_blueprint(donor_bp)
 from routes.category_routes import category_bp
 app.register_blueprint(category_bp)
 
+from routes.item_routes import item_bp
+app.register_blueprint(item_bp)
+
 with app.app_context():
   db.create_all()
 
