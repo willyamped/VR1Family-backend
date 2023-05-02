@@ -48,7 +48,19 @@ def get_item_by_category():
   try:
     category = request.args.get('category')
     items = Item.query.filter_by(category=category).all()
-    print(items)
+    item_list = []
+    for item in items:
+        item_data = {"id": item.id, "name": item.name, "quantity": item.quantity, "brand": item.brand, "expiry_date": item.expiry_date, "ingredients": item.ingredients, "allergens": item.allergens, "size": item.size}
+        item_list.append(item_data)
+    return item_list
+  except:
+    return f"An error has occured"
+
+@item_bp.route('/name', methods=['GET'])
+def get_item_by_name():
+  try:
+    name = request.args.get('name')
+    items = Item.query.filter_by(name=name).all()
     item_list = []
     for item in items:
         item_data = {"id": item.id, "name": item.name, "quantity": item.quantity, "brand": item.brand, "expiry_date": item.expiry_date, "ingredients": item.ingredients, "allergens": item.allergens, "size": item.size}
