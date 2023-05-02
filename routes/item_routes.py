@@ -42,3 +42,17 @@ def add_new_item():
     return f"Item {item.id} has been added"
   except:
     return "One of the attributes is missing. Ensure you have \"name, category, quantity, brand, expiry_date, ingredients, allergens, size, kit\""
+
+@item_bp.route('/category', methods=['GET'])
+def get_item_by_category():
+  try:
+    category = request.args.get('category')
+    items = Item.query.filter_by(category=category).all()
+    print(items)
+    item_list = []
+    for item in items:
+        item_data = {"id": item.id, "name": item.name, "quantity": item.quantity, "brand": item.brand, "expiry_date": item.expiry_date, "ingredients": item.ingredients, "allergens": item.allergens, "size": item.size}
+        item_list.append(item_data)
+    return item_list
+  except:
+    return f"An error has occured"
