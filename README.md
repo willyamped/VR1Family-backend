@@ -11,6 +11,10 @@ VR1 Family Charity Aid Services is an Australian organisation that aims to provi
     * (any other necessary dependencies)
 2. Run the app by heading over to `application.py` and type `flask run`
 
+## How To See Data in Database
+1. Perform the following command `sqlite3 instance/data.db`
+2. Perform the query (e.g `SELECT * FROM item`)
+
 
 ## Issues
 1. If no environment variables have been defined, do the following (example):
