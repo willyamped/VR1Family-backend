@@ -41,4 +41,4 @@ def add_new_item():
     db.session.commit()
     return f"Item {item.id} has been added"
   except:
-    return "One of the attributes is missing. Ensure you have \"name, age, address, phone_number, email_address, nationality, identification_numbers\""
+    return "One of the attributes is missing. Ensure you have \"name, category, quantity, brand, expiry_date, ingredients, allergens, size, kit\""
