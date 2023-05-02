@@ -24,6 +24,9 @@ app.register_blueprint(item_bp)
 from routes.request_routes import request_bp
 app.register_blueprint(request_bp)
 
+from routes.receive_routes import receive_bp
+app.register_blueprint(receive_bp)
+
 with app.app_context():
   db.create_all()
 
