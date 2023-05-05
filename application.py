@@ -1,11 +1,13 @@
 from flask import Flask
 from dotenv import load_dotenv
 from flask_sqlalchemy import SQLAlchemy
+from flask_cors import CORS
 
 load_dotenv()
 
 db = SQLAlchemy()
 app = Flask(__name__)
+CORS(app)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db.init_app(app)
 
@@ -31,5 +33,5 @@ with app.app_context():
   db.create_all()
 
 if __name__ == "__main__":
-  app.run()
+  app.run(host = 'localhost', port = 5001)
 
