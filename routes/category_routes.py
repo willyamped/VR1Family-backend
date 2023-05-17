@@ -20,8 +20,8 @@ def get_all_categories():
 def add_new_category():
   try:
     category = Category(
-      name = request.json['name'],
-      status = request.json['status'],
+      name = request.json['catName'],
+      status = request.json['inventory'],
     )
     db.session.add(category)
     db.session.commit()
